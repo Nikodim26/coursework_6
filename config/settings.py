@@ -99,8 +99,8 @@ EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
-EMAIL_USE_TLS = os.environ.get('DEBUG') == 'True'
-EMAIL_USE_SSL = os.environ.get('DEBUG') == 'True'
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True'
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL') == 'True'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -113,4 +113,4 @@ CACHES = {
     }
 }
 
-CACHE_TIMEOUT=60*int(os.environ.get('LOCATION'))
+CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))
