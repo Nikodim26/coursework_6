@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from Newsletter_Recipient.models import Customer
+from newsletter_recipient.models import Customer
 
 
 class Command(BaseCommand):
@@ -8,9 +8,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         names = {
-            'Юрий Владимирович Никулин':'Balbes@mail.ru',
-            'Георгий Михайлович Вицин':'Trus@yandex.ru',
-            'Евгений Александрович Моргунов':'Byvaliy@gmail.com',
+            'Никулин Юрий Владимирович':'Balbes@mail.ru',
+            'Вицин Георгий Михайлович':'Trus@yandex.ru',
+            'Моргунов Евгений Александрович':'Byvaliy@gmail.com',
             }
         for fio,email in names.items():
             Customer.objects.create(

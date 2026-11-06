@@ -1,6 +1,6 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from Newsletter_Recipient.models import Customer
+from newsletter_recipient.models import Customer
 
 
 class CustomersView(ListView):
@@ -12,3 +12,10 @@ class CustomersView(ListView):
         context = super().get_context_data(**kwargs)
         context['customers'] = Customer.objects.all()
         return context
+
+
+class CustomerView(DetailView):
+    model = Customer
+    template_name = 'customer.html'
+    context_object_name = 'customer'
+    pk_url_kwarg = 'pk'

@@ -16,7 +16,7 @@
 
     <nav class="ms-5 d-flex justify-content-between align-items-center w-100">
         <div>
-            <a class="btn btn-primary" href="#">Список</a>
+            <a class="btn btn-primary" href="{% url 'newsletter_recipient:customers'%}">Список</a>
             {% if request.path == '/customers/' %}
                 <a class="btn btn-primary" href="#">Новый клиент</a>
             {% endif %}
