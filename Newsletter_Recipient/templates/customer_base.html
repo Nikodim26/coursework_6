@@ -1,0 +1,37 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mine</title>
+    <link rel="icon" href="{% static 'icons/skypro.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mine.css' %}">
+
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Клиентура</h5>
+
+    <nav class="ms-5 d-flex justify-content-between align-items-center w-100">
+        <div>
+            <a class="btn btn-primary" href="#">Список</a>
+            {% if request.path == '/customers/' %}
+                <a class="btn btn-primary" href="#">Новый клиент</a>
+            {% endif %}
+
+        </div>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <span>{{ user.email|default:"" }}</span>
+            <button type="submit" class="p-2 btn btn-dark">Выход</button>
+        </form>
+    </nav>
+
+</div>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
