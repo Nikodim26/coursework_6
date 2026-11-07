@@ -17,7 +17,7 @@
 
             <p class="text-justify"> {{customer.email}}</p>
             <p class="text-justify"> {{customer.description}}</p>
-            <a class="p-2 btn btn-outline-warning btn-sm" href="#"> Изменить </a>
+            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'newsletter_recipient:customer_edit' pk=customer.pk %}"> Изменить </a>
             <a class="p-2 btn btn-outline-danger btn-sm" href="#"> Удалить </a>
         </div>
     </div>

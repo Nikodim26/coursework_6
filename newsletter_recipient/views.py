@@ -1,5 +1,7 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
+from newsletter_recipient.forms import CustomerForm
 from newsletter_recipient.models import Customer
 
 
@@ -19,3 +21,19 @@ class CustomerView(DetailView):
     template_name = 'customer.html'
     context_object_name = 'customer'
     pk_url_kwarg = 'pk'
+
+
+class CustomerCreateView(CreateView):
+    model = Customer
+    form_class = CustomerForm
+    template_name = 'create_update_customer.html'
+    success_url = reverse_lazy("newsletter_recipient:customers")
+    context_object_name = 'customer'
+
+
+class CustomerUpdateView(UpdateView):
+    model = Customer
+    form_class = CustomerForm
+    template_name = 'create_update_customer.html'
+    success_url = reverse_lazy("newsletter_recipient:customers")
+    context_object_name = 'customer'
