@@ -3,7 +3,8 @@ from django.views.generic import RedirectView
 from newsletter_recipient.apps import NewsletterRecipientConfig
 from django.urls import path
 
-from newsletter_recipient.views import CustomersView, CustomerView, CustomerCreateView, CustomerUpdateView
+from newsletter_recipient.views import CustomersView, CustomerView, CustomerCreateView, CustomerUpdateView, \
+    CustomerDeleteView
 
 app_name = NewsletterRecipientConfig.name
 

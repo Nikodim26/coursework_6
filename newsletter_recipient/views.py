@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from newsletter_recipient.forms import CustomerForm
 from newsletter_recipient.models import Customer
@@ -35,11 +35,13 @@ class CustomerUpdateView(UpdateView):
     model = Customer
     form_class = CustomerForm
     template_name = 'create_update_customer.html'
-    success_url = reverse_lazy("newsletter_recipient:customers")
     context_object_name = 'customer'
 
+    def get_success_url(self):
+        return self.object.get_absolute_url()
 
-class CustomerDeleteView(UpdateView):
+
+class CustomerDeleteView(DeleteView):
     model = Customer
     template_name = 'customer_delete_form.html'
     success_url = reverse_lazy("newsletter_recipient:customers")

@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 class Customer(models.Model):
     fio = models.CharField(max_length=100, verbose_name='Ф.И.О')
@@ -11,4 +13,7 @@ class Customer(models.Model):
     class Meta:
         verbose_name = 'клиент'
         verbose_name_plural = 'клиенты'
-        ordering = ['fio']
+        ordering = ['pk']
+
+    def get_absolute_url(self):
+        return reverse('newsletter_recipient:customer', kwargs={'pk': self.pk})

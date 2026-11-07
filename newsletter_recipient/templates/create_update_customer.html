@@ -8,8 +8,8 @@
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Сохранить</button>
 
-        {% if product.pk %}
-            <a href="/product/{{ product.pk }}/" class="btn btn-secondary">Отмена</a>
+        {% if customer.pk %}
+            <a href="/customer/{{ customer.pk }}/" class="btn btn-secondary">Отмена</a>
         {% else %}
             <a href="/customers/" class="btn btn-secondary">Отмена</a>
         {% endif %}

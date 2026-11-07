@@ -14,7 +14,6 @@
 <div class="container mt-1">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5 text-center">
-
             <p class="text-justify"> {{customer.email}}</p>
             <p class="text-justify"> {{customer.description}}</p>
             <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'newsletter_recipient:customer_edit' pk=customer.pk %}"> Изменить </a>
