@@ -1,0 +1,26 @@
+[
+{
+    "model": "message_management.letter",
+    "pk": 1,
+    "fields": {
+        "email_subject": "Привет",
+        "letter_body": "Привет, балбес!"
+    }
+},
+{
+    "model": "message_management.letter",
+    "pk": 2,
+    "fields": {
+        "email_subject": "Напоминание",
+        "letter_body": "Ты трус!"
+    }
+},
+{
+    "model": "message_management.letter",
+    "pk": 3,
+    "fields": {
+        "email_subject": "Малява",
+        "letter_body": "Ты в авторитете"
+    }
+}
+]

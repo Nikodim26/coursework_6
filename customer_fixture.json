@@ -1,0 +1,29 @@
+[
+{
+    "model": "customer_management.customer",
+    "pk": 1,
+    "fields": {
+        "fio": "Никулин Юрий Владимирович",
+        "email": "Balbes@mail.ru",
+        "description": "Тестовый клиент"
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 2,
+    "fields": {
+        "fio": "Вицин Георгий Михайлович",
+        "email": "Trus@yandex.ru",
+        "description": "Тестовый клиент"
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 3,
+    "fields": {
+        "fio": "Моргунов Евгений Александрович",
+        "email": "Byvaliy@gmail.com",
+        "description": "Тестовый клиент"
+    }
+}
+]

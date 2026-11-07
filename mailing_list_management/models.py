@@ -1,9 +1,11 @@
+import datetime
+
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 
 class NewsLetter(models.Model):
-
     start_time = models.DateTimeField(verbose_name='Время запуска рассылки', blank=False, null=False)
     end_time = models.DateTimeField(verbose_name='Время остановки рассылки', blank=False, null=False)
     status = models.CharField(max_length=15, verbose_name='Статус рассылки')
@@ -29,3 +31,16 @@ class NewsLetter(models.Model):
 
     def get_absolute_url(self):
         return reverse('mailing_list_management:Newsletter', kwargs={'pk': self.pk})
+
+    def update_status(self):
+
+        time_now = timezone.now()
+
+        if self.start_time > time_now:
+            self.status = 'Создана'
+        elif self.end_time < time_now:
+            self.status = 'Завершена'
+        else:
+            self.status = 'Запущена'
+
+        self.save()
