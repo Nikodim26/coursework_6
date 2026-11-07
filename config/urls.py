@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('newsletter_recipient.urls', namespace='newsletter_recipient')),
-    
+    path('', include('newsletter_letters.urls', namespace='newsletter_letters')),
+
 ]
 
 if settings.DEBUG:

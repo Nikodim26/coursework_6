@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newsletter_recipient',
+    'newsletter_letters',
+
 ]
 
 MIDDLEWARE = [
