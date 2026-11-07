@@ -3,18 +3,19 @@ from django.views.generic import RedirectView
 from newsletter_letters.apps import NewsletterLettersConfig
 from django.urls import path
 
-from newsletter_recipient.views import CustomersView, CustomerView, CustomerCreateView, CustomerUpdateView, \
-    CustomerDeleteView
+from newsletter_letters.views import LettersView, LetterView, LetterCreateView, LetterUpdateView, \
+    LetterDeleteView
 
 app_name = NewsletterLettersConfig.name
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name='newsletter_recipient:customers', permanent=False), name='root'),
-    path('customers/', CustomersView.as_view(), name='customers'),
-    path('customer/<int:pk>/',CustomerView.as_view(), name='customer'),
+    path('', RedirectView.as_view(pattern_name='newsletter_letters:letters', permanent=False), name='root'),
+    path('letters/', LettersView.as_view(), name='letters'),
+    path('letter/<int:pk>/',LetterView.as_view(), name='letter'),
 
-    path('customer/new/', CustomerCreateView.as_view(), name='customer_create'),
-    path('customer/<int:pk>/edit/', CustomerUpdateView.as_view(), name='customer_edit'),
-    path('customer/<int:pk>/delete/',CustomerDeleteView.as_view(), name='customer_delete'),
+    path('letter/new/', LetterCreateView.as_view(), name='letter_create'),
+    path('letter/<int:pk>/edit/', LetterUpdateView.as_view(), name='letter_edit'),
+    path('letter/<int:pk>/delete/',LetterDeleteView.as_view(), name='letter_delete'),
 
 ]
+

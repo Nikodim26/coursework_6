@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from newsletter_letters.models import Message
+from newsletter_letters.models import Letter
 
 
 class Command(BaseCommand):
@@ -12,9 +12,9 @@ class Command(BaseCommand):
             'Напоминание':'Ты трус!',
             'Малява':'Ты в авторитете',
             }
-        for email_subject,Letter_body in email_subjects.items():
-            Message.objects.create(
+        for email_subject,letter_body in email_subjects.items():
+            Letter.objects.create(
                 email_subject=email_subject,
-                Letter_body = Letter_body
+                letter_body = letter_body
             )
 

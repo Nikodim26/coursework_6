@@ -9,7 +9,7 @@ from newsletter_recipient.views import CustomersView, CustomerView, CustomerCrea
 app_name = NewsletterRecipientConfig.name
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name='newsletter_recipient:customers', permanent=False), name='root'),
+    # path('', RedirectView.as_view(pattern_name='newsletter_recipient:customers', permanent=False), name='root'),
     path('customers/', CustomersView.as_view(), name='customers'),
     path('customer/<int:pk>/',CustomerView.as_view(), name='customer'),
 
