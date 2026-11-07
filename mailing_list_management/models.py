@@ -2,15 +2,21 @@ from django.db import models
 from django.urls import reverse
 
 
-class Newsletter(models.Model):
+class NewsLetter(models.Model):
 
     start_time = models.DateTimeField(verbose_name='Время запуска рассылки', blank=False, null=False)
     end_time = models.DateTimeField(verbose_name='Время остановки рассылки', blank=False, null=False)
-    status = models.CharField(max_length=15, verbose_name='Тема письма')
-    message = models.ForeignKey('message_management.Letter', on_delete=models.CASCADE)
-    recipients = models.ManyToManyField('customer_management.Customer',
+    status = models.CharField(max_length=15, verbose_name='Статус рассылки')
+    message = models.ForeignKey(
+        'message_management.Letter',
+        on_delete=models.CASCADE,
+        verbose_name='Письмо',
+        related_name='newsletters'
+    )
+    recipients = models.ManyToManyField(
+        'customer_management.Customer',
         verbose_name='Получатели',
-        related_name='messages_received'
+        related_name='newsletters'
     )
 
     def __str__(self):
@@ -22,4 +28,4 @@ class Newsletter(models.Model):
         ordering = ['start_time']
 
     def get_absolute_url(self):
-        return reverse('message_management:letter', kwargs={'pk': self.pk})
+        return reverse('mailing_list_management:Newsletter', kwargs={'pk': self.pk})
