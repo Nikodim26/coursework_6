@@ -37,3 +37,10 @@ class CustomerUpdateView(UpdateView):
     template_name = 'create_update_customer.html'
     success_url = reverse_lazy("newsletter_recipient:customers")
     context_object_name = 'customer'
+
+
+class CustomerDeleteView(UpdateView):
+    model = Customer
+    template_name = 'customer_delete_form.html'
+    success_url = reverse_lazy("newsletter_recipient:customers")
+    context_object_name = 'customer'
