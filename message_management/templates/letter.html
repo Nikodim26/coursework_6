@@ -1,0 +1,24 @@
+{% extends 'letter_base.html' %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
+    <h3>Письмо</h3>
+    <div class="lh-sm mb-0">
+        <p class="lead mb-1">
+            <span class="fw-bold text-primary fs-5">{{letter.email_subject}}</span>
+        </p>
+    </div>
+</div>
+
+
+<div class="container mt-1">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 text-center">
+            <p class="text-justify"> {{letter.letter_body}}</p>
+            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'message_management:letter_edit' pk=letter.pk %}"> Изменить </a>
+            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'message_management:letter_delete' pk=letter.pk %}"> Удалить </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

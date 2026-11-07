@@ -1,0 +1,25 @@
+{% extends 'customer_base.html' %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
+    <h3>Клиент</h3>
+    <div class="lh-sm mb-0">
+        <p class="lead mb-1">
+            <span class="fw-bold text-primary fs-5">{{customer.fio}}</span>
+        </p>
+    </div>
+</div>
+
+
+<div class="container mt-1">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 text-center">
+            <p class="text-justify"> {{customer.email}}</p>
+            <p class="text-justify"> {{customer.description}}</p>
+            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'customer_management:customer_edit' pk=customer.pk %}"> Изменить </a>
+            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'customer_management:customer_delete' pk=customer.pk %}"> Удалить </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

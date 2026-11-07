@@ -1,0 +1,18 @@
+{% extends 'letter_base.html' %}
+
+{% block content %}
+<div class="container">
+    <h3 class="text-info mb-3 text-center">Письма</h3>
+    <div class="row g-4">
+        {% for letter in letters %}
+        <div class="col-md-6 col-lg-4 text-center">
+            <h6 class="text-dark mb-1">{{letter.email_subject}}</h6>
+            <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{letter.letter_body}}</p>
+            <a href="{% url 'message_management:letter' pk=letter.pk %}" class="btn btn-outline-primary w-50 rounded-sm"
+               style="margin-top: 20px;">Подробности</a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

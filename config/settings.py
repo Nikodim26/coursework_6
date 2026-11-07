@@ -19,8 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'newsletter_recipient',
-    'newsletter_letters',
+    'customer_management',
+    'message_management',
+    'mailing_list_management',
 
 ]
 
