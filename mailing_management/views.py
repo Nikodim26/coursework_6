@@ -46,8 +46,8 @@ class NewsLetterUpdateView(UpdateView):
         return self.object.get_absolute_url()
 
 
-# class LetterDeleteView(DeleteView):
-#     model = Letter
-#     template_name = 'letter_delete_form.html'
-#     success_url = reverse_lazy("message_management:letters")
-#     context_object_name = 'letter'
+class NewsLetterDeleteView(DeleteView):
+    model = NewsLetter
+    template_name = 'newsletter_delete_form.html'
+    success_url = reverse_lazy("message_management:newsletters")
+    context_object_name = 'newsletter'

@@ -11,7 +11,7 @@
             <p class="text-justify">Конец-{{newsletter.end_time}}</p>
             <p class="text-justify">Статус-{{newsletter.status}}</p>
             <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'mailing_management:newsletter_edit' pk=newsletter.pk %}"> Изменить </a>
-            <a class="p-2 btn btn-outline-danger btn-sm" href="#"> Удалить </a>
+            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'mailing_management:newsletter_delete' pk=newsletter.pk %}"> Удалить </a>
         </div>
     </div>
 </div>

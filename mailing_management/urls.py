@@ -1,7 +1,8 @@
 from django.views.generic import RedirectView
 
 from mailing_management.apps import MailingManagementConfig
-from mailing_management.views import NewsLettersView, NewsLetterView, NewsLetterCreateView, NewsLetterUpdateView
+from mailing_management.views import NewsLettersView, NewsLetterView, NewsLetterCreateView, NewsLetterUpdateView, \
+    NewsLetterDeleteView
 from django.urls import path
 
 app_name = MailingManagementConfig.name
@@ -13,7 +14,7 @@ urlpatterns = [
     #
     path('newsletter/new/', NewsLetterCreateView.as_view(), name='newsletter_create'),
     path('newsletter/<int:pk>/edit/', NewsLetterUpdateView.as_view(), name='newsletter_edit'),
-    # path('letter/<int:pk>/delete/',LetterDeleteView.as_view(), name='letter_delete'),
+    path('newsletter/<int:pk>/delete/',NewsLetterDeleteView.as_view(), name='newsletter_delete'),
 
 ]
 
