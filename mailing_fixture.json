@@ -1,0 +1,41 @@
+[
+{
+    "model": "mailing_management.newsletter",
+    "pk": 1,
+    "fields": {
+        "start_time": "2026-10-01T15:42:07Z",
+        "end_time": "2026-10-10T15:42:07Z",
+        "status": "Завершена",
+        "message": 1,
+        "recipients": [
+            1
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 2,
+    "fields": {
+        "start_time": "2026-11-01T15:42:07Z",
+        "end_time": "2026-11-20T15:42:07Z",
+        "status": "Запущена",
+        "message": 2,
+        "recipients": [
+            2
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 3,
+    "fields": {
+        "start_time": "2026-11-21T15:42:07Z",
+        "end_time": "2026-11-30T15:42:07Z",
+        "status": "Создана",
+        "message": 3,
+        "recipients": [
+            3
+        ]
+    }
+}
+]

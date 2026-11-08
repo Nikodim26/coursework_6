@@ -7,9 +7,13 @@
 <div class="container mt-1">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5 text-center">
-            <p class="text-justify">Начало-{{newsletter.start_time}}</p>
-            <p class="text-justify">Конец-{{newsletter.end_time}}</p>
-            <p class="text-justify">Статус-{{newsletter.status}}</p>
+            <p class="text-justify">Тема - "{{newsletter.message}}"</p>
+            <p class="text-justify">Начало - {{newsletter.start_time}}</p>
+            <p class="text-justify">Конец - {{newsletter.end_time}}</p>
+            {% for recipient in recipients %}
+            <p class="text-justify">Получатель - {{recipient}}</p>
+            {% endfor %}
+            <p class="text-justify">Статус - {{newsletter.status}}</p>
             <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'mailing_management:newsletter_edit' pk=newsletter.pk %}"> Изменить </a>
             <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'mailing_management:newsletter_delete' pk=newsletter.pk %}"> Удалить </a>
         </div>

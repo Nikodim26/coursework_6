@@ -6,6 +6,7 @@
     <div class="row g-4">
         {% for newsletter in newsletters %}
         <div class="col-md-6 col-lg-4 text-center">
+             <p class="text-justify">Тема - "{{newsletter.message}}"</p>
             <p class="text-justify" style="max-width: 350px; margin: 0 auto;">Начало-{{newsletter.start_time}}</p>
             <p class="text-justify" style="max-width: 350px; margin: 0 auto;">Конец-{{newsletter.end_time}}</p>
             <a href="{% url 'mailing_management:newsletter' pk=newsletter.pk %}" class="btn btn-outline-primary w-50 rounded-sm"

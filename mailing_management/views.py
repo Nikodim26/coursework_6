@@ -27,6 +27,11 @@ class NewsLetterView(DetailView):
         obj.update_status()
         return obj
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['recipients'] = self.object.recipients.all()
+        return context
+
 
 class NewsLetterCreateView(CreateView):
     model = NewsLetter
@@ -40,6 +45,7 @@ class NewsLetterUpdateView(UpdateView):
     model = NewsLetter
     form_class = MailingForm
     template_name = 'create_update_mail.html'
+    success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'
 
     def get_success_url(self):
