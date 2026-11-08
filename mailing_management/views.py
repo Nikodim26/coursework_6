@@ -37,7 +37,7 @@ class NewsLetterCreateView(CreateView):
     model = NewsLetter
     form_class = MailingForm
     template_name = 'create_update_mail.html'
-    success_url = reverse_lazy("mailing_management:newsletter")
+    success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'
 
 
@@ -45,7 +45,6 @@ class NewsLetterUpdateView(UpdateView):
     model = NewsLetter
     form_class = MailingForm
     template_name = 'create_update_mail.html'
-    success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'
 
     def get_success_url(self):
@@ -55,5 +54,5 @@ class NewsLetterUpdateView(UpdateView):
 class NewsLetterDeleteView(DeleteView):
     model = NewsLetter
     template_name = 'newsletter_delete_form.html'
-    success_url = reverse_lazy("message_management:newsletters")
+    success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'

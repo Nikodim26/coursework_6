@@ -25,5 +25,14 @@
         "email": "Byvaliy@gmail.com",
         "description": "Тестовый клиент"
     }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 4,
+    "fields": {
+        "fio": "Васильев Андрей Александрович",
+        "email": "lr1975@yandex.ru",
+        "description": "Это Я-любимый"
+    }
 }
 ]

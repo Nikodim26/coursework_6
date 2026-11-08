@@ -27,18 +27,22 @@ class NewsLetter(models.Model):
         verbose_name_plural = 'рассылки'
         ordering = ['start_time']
 
-    def get_absolute_url(self):
-        return reverse('mailing_management:newsletter', kwargs={'pk': self.pk})
-
     def update_status(self):
-
         time_now = timezone.now()
 
-        if self.start_time > time_now:
-            self.status = 'Создана'
-        elif self.end_time < time_now:
-            self.status = 'Завершена'
-        else:
-            self.status = 'Запущена'
+        if self.start_time is None or self.end_time is None:
+            return
 
-        self.save()
+        if time_now < self.start_time:
+            new_status = 'Создана'
+        elif time_now > self.end_time:
+            new_status = 'Завершена'
+        else:
+            new_status = 'Запущена'
+
+        if getattr(self, 'status', None) != new_status:
+            self.status = new_status
+            self.save(update_fields=['status'])
+
+    def get_absolute_url(self):
+        return reverse('mailing_management:newsletter', kwargs={'pk': self.pk})

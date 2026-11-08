@@ -3,9 +3,9 @@
     "model": "mailing_management.newsletter",
     "pk": 1,
     "fields": {
-        "start_time": "2026-10-01T15:42:07Z",
-        "end_time": "2026-10-10T15:42:07Z",
-        "status": "Завершена",
+        "start_time": "2026-11-09T15:42:07Z",
+        "end_time": "2026-11-10T15:42:07Z",
+        "status": "Создана",
         "message": 1,
         "recipients": [
             1
@@ -35,6 +35,84 @@
         "message": 3,
         "recipients": [
             3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 5,
+    "fields": {
+        "start_time": "2026-11-09T18:16:54Z",
+        "end_time": "2026-11-10T18:17:38Z",
+        "status": "Создана",
+        "message": 3,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 6,
+    "fields": {
+        "start_time": "2026-11-09T18:16:54Z",
+        "end_time": "2026-11-10T18:17:38Z",
+        "status": "Создана",
+        "message": 3,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 7,
+    "fields": {
+        "start_time": "2026-11-10T07:10:10Z",
+        "end_time": "2026-11-11T07:10:10Z",
+        "status": "",
+        "message": 1,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 8,
+    "fields": {
+        "start_time": "2026-11-10T07:10:10Z",
+        "end_time": "2026-11-11T07:10:10Z",
+        "status": "Создана",
+        "message": 1,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 10,
+    "fields": {
+        "start_time": "2026-11-09T18:26:01Z",
+        "end_time": "2026-11-10T18:26:09Z",
+        "status": "",
+        "message": 5,
+        "recipients": [
+            3
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 11,
+    "fields": {
+        "start_time": "2026-11-09T18:33:12Z",
+        "end_time": "2026-11-10T18:33:22Z",
+        "status": "Создана",
+        "message": 4,
+        "recipients": [
+            4
         ]
     }
 }
