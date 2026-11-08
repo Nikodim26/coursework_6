@@ -1,11 +1,11 @@
 from django import forms
 
-from mailing_list_management.models import NewsLetter
+from mailing_management.models import NewsLetter
 
 
-class MailingListForm(forms.ModelForm):
+class MailingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super(MailingListForm, self).__init__(*args, **kwargs)
+        super(MailingForm, self).__init__(*args, **kwargs)
 
         self.fields['start_time'].widget.attrs.update({
             'class': 'form-control border border-info custom-placeholder',
@@ -17,7 +17,15 @@ class MailingListForm(forms.ModelForm):
             'placeholder': 'ГГГГ-ММ-ДД ЧЧ:ММ:СС',
         })
 
+        self.fields['message'].widget.attrs.update({
+            'class': 'form-control border border-info',
+        })
+
+        self.fields['recipients'].widget.attrs.update({
+            'class': 'form-control border border-info',
+        })
+
 
     class Meta:
         model = NewsLetter
-        exclude = ['owner']
+        exclude = ['status']

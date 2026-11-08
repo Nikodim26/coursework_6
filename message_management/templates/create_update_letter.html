@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container text-left col-lg-4">
-    <h2 class="text-center">Новый клиент</h2>
+    <h2 class="text-center">Письмо</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

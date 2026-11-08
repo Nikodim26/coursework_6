@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('customer_management.urls', namespace='customer_management')),
     path('', include('message_management.urls', namespace='message_management')),
-    path('', include('mailing_list_management.urls', namespace='mailing_list_management')),
+    path('', include('mailing_management.urls', namespace='mailing_management')),
 
 ]
 

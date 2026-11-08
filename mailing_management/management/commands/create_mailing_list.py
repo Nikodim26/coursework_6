@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.core.management.base import BaseCommand
-from mailing_list_management.models import NewsLetter
+from mailing_management.models import NewsLetter
 from message_management.models import Letter
 
 

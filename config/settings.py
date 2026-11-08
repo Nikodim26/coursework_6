@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer_management',
     'message_management',
-    'mailing_list_management',
+    'mailing_management',
 
 ]
 
@@ -40,7 +40,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,14 +90,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR / "media/"
-
-
 # AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = '/home/'
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/login/'
+# LOGIN_REDIRECT_URL = '/home/'
+# LOGOUT_REDIRECT_URL = '/'
+# LOGIN_URL = '/login/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -112,11 +108,11 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 
-CACHES = {
-    'default': {
-        'BACKEND': os.environ.get('BACKEND'),
-        'LOCATION': os.environ.get('LOCATION')
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': os.environ.get('BACKEND'),
+#         'LOCATION': os.environ.get('LOCATION')
+#     }
+# }
 
-CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))
+# CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))

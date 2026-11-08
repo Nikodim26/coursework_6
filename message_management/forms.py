@@ -15,7 +15,7 @@ class LetterForm(forms.ModelForm):
         self.fields['letter_body'].widget.attrs.update({
             'class': 'form-control border border-warning bg-success p-2 text-dark bg-opacity-25 custom-placeholder',
             'placeholder': 'Содержание',
-            'style': 'height: 150px;'
+            'style': 'field-sizing: content;'
         })
 
     class Meta:

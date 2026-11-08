@@ -1,9 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from mailing_list_management.models import NewsLetter
-from message_management.forms import LetterForm
-from message_management.models import Letter
+from mailing_management.forms import MailingForm
+from mailing_management.models import NewsLetter
 
 
 class NewsLettersView(ListView):
@@ -29,24 +28,24 @@ class NewsLetterView(DetailView):
         return obj
 
 
-# class LetterCreateView(CreateView):
-#     model = Letter
-#     form_class = LetterForm
-#     template_name = 'create_update_letter.html'
-#     success_url = reverse_lazy("message_management:letters")
-#     context_object_name = 'letter'
-#
-#
-# class LetterUpdateView(UpdateView):
-#     model = Letter
-#     form_class = LetterForm
-#     template_name = 'create_update_letter.html'
-#     context_object_name = 'letter'
-#
-#     def get_success_url(self):
-#         return self.object.get_absolute_url()
-#
-#
+class NewsLetterCreateView(CreateView):
+    model = NewsLetter
+    form_class = MailingForm
+    template_name = 'create_update_mail.html'
+    success_url = reverse_lazy("mailing_management:newsletter")
+    context_object_name = 'newsletter'
+
+
+class NewsLetterUpdateView(UpdateView):
+    model = NewsLetter
+    form_class = MailingForm
+    template_name = 'create_update_mail.html'
+    context_object_name = 'newsletter'
+
+    def get_success_url(self):
+        return self.object.get_absolute_url()
+
+
 # class LetterDeleteView(DeleteView):
 #     model = Letter
 #     template_name = 'letter_delete_form.html'

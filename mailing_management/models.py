@@ -1,5 +1,3 @@
-import datetime
-
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -12,7 +10,7 @@ class NewsLetter(models.Model):
     message = models.ForeignKey(
         'message_management.Letter',
         on_delete=models.CASCADE,
-        verbose_name='Письмо',
+        verbose_name='Тема письма',
         related_name='newsletters'
     )
     recipients = models.ManyToManyField(
@@ -30,7 +28,7 @@ class NewsLetter(models.Model):
         ordering = ['start_time']
 
     def get_absolute_url(self):
-        return reverse('mailing_list_management:Newsletter', kwargs={'pk': self.pk})
+        return reverse('mailing_management:newsletter', kwargs={'pk': self.pk})
 
     def update_status(self):
 
