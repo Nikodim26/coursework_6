@@ -1,0 +1,30 @@
+{% extends 'users_base.html' %}
+
+{% block content %}
+<div class="container col-md-3">
+    <div class="text-left mb-4">
+    <div class="card border-light shadow-sm">
+        <div class="card-body p-3 p-md-4">
+            <h6 class="text-muted text-uppercase fw-bold small mb-3">
+                Статистика рассылок и получателей
+            </h6>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <p class="mb-1 text-secondary small">Общее количество рассылок</p>
+                    <h4 class="text-primary fw-bold m-0">{{ all_newsletters_count|default:0 }}</h4>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <p class="mb-1 text-secondary small">Рассылок, готовых к запуску</p>
+                    <h4 class="text-success fw-bold m-0">{{ active_newsletters_count|default:0 }}</h4>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-auto">
+                    <p class="mb-1 text-secondary small">Общее количество получателей</p>
+                    <h4 class="fw-bold m-0">{{ customers_count|default:0 }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
