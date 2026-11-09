@@ -87,13 +87,11 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
 
-DATETIME_INPUT_FORMATS = ['%Y-%m-%d %H:%M:%S']
-DATETIME_FORMAT = 'Y-m-d H:i:s'
-DATE_FORMAT = 'Y-m-d'
-TIME_FORMAT = 'H:i:s'
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media/"
 
 # AUTH_USER_MODEL = 'users.User'
 # LOGIN_REDIRECT_URL = '/home/'
@@ -119,5 +117,5 @@ SERVER_EMAIL = EMAIL_HOST_USER
 #         'LOCATION': os.environ.get('LOCATION')
 #     }
 # }
-
+#
 # CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))
