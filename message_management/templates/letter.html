@@ -35,8 +35,7 @@
                             <i class="bi bi-pencil me-1"></i> Изменить
                         </a>
                         <a class="btn btn-outline-danger btn-sm px-3"
-                           href="{% url 'message_management:letter_delete' pk=letter.pk %}"
-                           onclick="return confirm('Вы уверены, что хотите удалить письмо «{{ letter.email_subject|escapejs }}»?');">
+                           href="{% url 'message_management:letter_delete' pk=letter.pk %}">
                             <i class="bi bi-trash me-1"></i> Удалить
                         </a>
                     </div>
