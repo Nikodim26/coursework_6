@@ -1,19 +1,43 @@
 {% extends 'newsletter_base.html' %}
 
 {% block content %}
-<div class="container">
-    <h3 class="text-info mb-3 text-center">Рассылки</h3>
+<div class="container mt-4">
+    <h3 class="text-info mb-4 text-center">Рассылки</h3>
+
     <div class="row g-4">
         {% for newsletter in newsletters %}
-        <div class="col-md-6 col-lg-4 text-center">
-             <p class="text-justify">Тема - "{{newsletter.message}}"</p>
-            <p class="text-justify" style="max-width: 350px; margin: 0 auto;">Начало-{{newsletter.start_time}}</p>
-            <p class="text-justify" style="max-width: 350px; margin: 0 auto;">Конец-{{newsletter.end_time}}</p>
-            <a href="{% url 'mailing_management:newsletter' pk=newsletter.pk %}" class="btn btn-outline-primary w-50 rounded-sm"
-               style="margin-top: 20px;">Подробности</a>
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-light shadow-sm">
+                <div class="card-body d-flex flex-column text-center">
+
+                    <h5 class="card-title text-dark fw-bold mb-3">
+                        Тема — "{{ newsletter.message }}"
+                    </h5>
+
+                    <div class="mb-3 text-secondary small">
+                        <p class="mb-1">
+                            <i class="bi bi-clock me-1"></i>
+                            Начало: {{ newsletter.start_time|date:"d.m.Y H:i" }}
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-x-circle me-1"></i>
+                            Конец: {{ newsletter.end_time|date:"d.m.Y H:i" }}
+                        </p>
+                    </div>
+
+                    <a href="{% url 'mailing_management:newsletter' pk=newsletter.pk %}"
+                       class="btn btn-outline-primary btn-sm px-2 py-1 rounded-sm">
+                        Подробности
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center py-5">
+            <p class="text-muted">Пока нет активных рассылок.</p>
         </div>
         {% endfor %}
-
     </div>
 </div>
+
 {% endblock %}

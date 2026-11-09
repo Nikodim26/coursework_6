@@ -2,24 +2,47 @@
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
-    <h3>Клиент</h3>
+    <h3 class="mb-2">Клиент</h3>
     <div class="lh-sm mb-0">
         <p class="lead mb-1">
-            <span class="fw-bold text-primary fs-5">{{customer.fio}}</span>
+            <span class="fw-bold text-primary fs-5">{{ customer.fio }}</span>
         </p>
     </div>
 </div>
 
-
 <div class="container mt-1">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5 text-center">
-            <p class="text-justify"> {{customer.email}}</p>
-            <p class="text-justify"> {{customer.description}}</p>
-            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'customer_management:customer_edit' pk=customer.pk %}"> Изменить </a>
-            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'customer_management:customer_delete' pk=customer.pk %}"> Удалить </a>
+        <div class="col-md-6 col-lg-5">
+            <div class="card border-light shadow-sm">
+                <div class="card-body p-4 text-center">
+
+                    <p class="mb-2">
+                        <i class="bi bi-envelope me-2 text-secondary"></i>
+                        <a href="mailto:{{ customer.email }}" class="text-decoration-none">{{ customer.email }}</a>
+                    </p>
+
+                    {% if customer.description %}
+                        <p class="text-secondary mb-4">{{ customer.description }}</p>
+                    {% else %}
+                        <p class="text-secondary fst-italic mb-4">Описание не заполнено</p>
+                    {% endif %}
+
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        <a class="btn btn-outline-warning btn-sm px-3"
+                           href="{% url 'customer_management:customer_edit' pk=customer.pk %}">
+                            <i class="bi bi-pencil me-1"></i> Изменить
+                        </a>
+                        <a class="btn btn-outline-danger btn-sm px-3"
+                           href="{% url 'customer_management:customer_delete' pk=customer.pk %}">
+                            <i class="bi bi-trash me-1"></i> Удалить
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

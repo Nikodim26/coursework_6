@@ -2,22 +2,76 @@
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
-    <h3>Рассылка</h3>
+    <h3 class="mb-2">Рассылка</h3>
+    <div class="lh-sm mb-0">
+        <p class="lead mb-1">
+            <span class="fw-bold text-primary fs-5">Тема — «{{ newsletter.message }}»</span>
+        </p>
+    </div>
 </div>
-<div class="container mt-1">
+
+<div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5 text-center">
-            <p class="text-justify">Тема - "{{newsletter.message}}"</p>
-            <p class="text-justify">Начало - {{newsletter.start_time}}</p>
-            <p class="text-justify">Конец - {{newsletter.end_time}}</p>
-            {% for recipient in recipients %}
-            <p class="text-justify">Получатель - {{recipient}}</p>
-            {% endfor %}
-            <p class="text-justify">Статус - {{newsletter.status}}</p>
-            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'mailing_management:newsletter_edit' pk=newsletter.pk %}"> Изменить </a>
-            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'mailing_management:newsletter_delete' pk=newsletter.pk %}"> Удалить </a>
+        <div class="col-md-6 col-lg-5">
+            <div class="card border-light shadow-sm">
+                <div class="card-body p-4">
+
+                    <!-- Даты -->
+                    <div class="text-secondary small mb-3">
+                        <p class="mb-1">
+                            <i class="bi bi-clock me-1"></i>
+                            Начало: {{ newsletter.start_time|date:"d.m.Y H:i" }}
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-x-circle me-1"></i>
+                            Конец: {{ newsletter.end_time|date:"d.m.Y H:i" }}
+                        </p>
+                    </div>
+
+                    <!-- Статус -->
+                    <p class="mb-3">
+                        Статус:
+                        {% if newsletter.status == 'Запущена' %}
+                            <span class="badge bg-success">Запущена</span>
+                        {% elif newsletter.status == 'Завершена' %}
+                            <span class="badge bg-secondary">Завершена</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">{{ newsletter.status }}</span>
+                        {% endif %}
+                    </p>
+
+                    <!-- Получатели -->
+                    <div class="mb-4">
+                        <p class="fw-bold mb-2">
+                            Получатели
+                            <span class="badge bg-primary ms-1">{{ recipients|length }}</span>
+                        </p>
+                        {% for recipient in recipients %}
+                            <p class="mb-1 text-secondary">
+                                <i class="bi bi-person me-1"></i>{{ recipient }}
+                            </p>
+                        {% empty %}
+                            <p class="text-muted fst-italic">Получатели не выбраны</p>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Кнопки -->
+                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                        <a class="btn btn-outline-warning btn-sm px-3"
+                           href="{% url 'mailing_management:newsletter_edit' pk=newsletter.pk %}">
+                            <i class="bi bi-pencil me-1"></i> Изменить
+                        </a>
+                        <a class="btn btn-outline-danger btn-sm px-3"
+                           href="{% url 'mailing_management:newsletter_delete' pk=newsletter.pk %}">
+                            <i class="bi bi-trash me-1"></i> Удалить
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}
