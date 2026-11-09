@@ -22,11 +22,7 @@
             {% endif %}
 
         </div>
-        <form action="#" method="post">
-            {% csrf_token %}
-            <span>{{ user.email|default:"" }}</span>
-            <button type="submit" class="p-2 btn btn-dark">Выход</button>
-        </form>
+        {% include 'includes/logout.html' %}
     </nav>
 
 </div>

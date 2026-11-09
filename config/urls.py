@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('customer_management.urls', namespace='customer_management')),
     path('', include('message_management.urls', namespace='message_management')),
     path('', include('mailing_management.urls', namespace='mailing_management')),
+    path('', include('users.urls', namespace='users')),
 
 ]
 

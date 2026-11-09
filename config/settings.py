@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'customer_management',
     'message_management',
     'mailing_management',
+    'users',
 
 ]
 
@@ -93,10 +94,10 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media/"
 
-# AUTH_USER_MODEL = 'users.User'
-# LOGIN_REDIRECT_URL = '/home/'
-# LOGOUT_REDIRECT_URL = '/'
-# LOGIN_URL = '/login/'
+AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/newsletters/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
