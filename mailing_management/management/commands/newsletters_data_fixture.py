@@ -3,14 +3,14 @@ from django.core.management import call_command
 import os
 
 class Command(BaseCommand):
-    help = 'Загружает фикстуру newsletter_fixture.json для моделей блога'
+    help = 'Загружает фикстуру mailing_fixture.json для моделей блога'
 
     def add_arguments(self, parser):
         parser.add_argument(
             '--fixture',
             type=str,
-            default='newsletter_fixture.json',
-            help='Путь к файлу фикстуры (по умолчанию: newsletter_fixture.json)'
+            default='mailing_fixture.json',
+            help='Путь к файлу фикстуры (по умолчанию: mailing_fixture.json)'
         )
         parser.add_argument(
             '--ignore',
