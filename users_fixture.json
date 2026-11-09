@@ -1,27 +1,6 @@
 [
 {
     "model": "users.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$1500000$3AzI38v8CSIj1G6TSc8DZa$mtiGWXOM+lmB0HENNUu5LzcRiUuYPPTjAGAYgoelKmU=",
-        "last_login": "2026-10-29T10:57:21.024Z",
-        "is_superuser": true,
-        "first_name": "",
-        "last_name": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2026-10-29T10:56:58.521Z",
-        "email": "lr1975@yandex.ru",
-        "avatar": "",
-        "phone_number": null,
-        "country": null,
-        "token": null,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "users.user",
     "pk": 46,
     "fields": {
         "password": "pbkdf2_sha256$600000$UBACepoSPGmMZwi5vgA1HX$Phy1pKk8PDxwOGy8dGv6FCF1BKfq7zm8ezVTjhbumBM=",
