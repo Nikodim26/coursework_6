@@ -13,13 +13,11 @@
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <nav class="ms-5 d-flex justify-content-between align-items-center w-100">
-        <form action="{% url 'users:logout' %}" method="post">
-            {% csrf_token %}
-            <span>{{ user.email|default:"" }}</span>
-            <button type="submit" class="p-2 btn btn-dark">Выход</button>
-        </form>
-
-        <a class="btn btn-primary" href="#">Запуск рассылок</a>
+        {% if request.path != '/login/' %}
+            <a class="btn btn-primary" href="#">Запуск рассылок</a>
+        {% else %}
+        <div></div>
+        {% endif %}
         {% include 'includes/logout.html' %}
     </nav>
 

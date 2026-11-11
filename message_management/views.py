@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
@@ -7,27 +8,8 @@ from mailing_management.models import NewsLetter
 from message_management.forms import LetterForm
 from message_management.models import Letter
 
-class HomeView(TemplateView):
-    template_name = 'start_mailing.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        now = timezone.now()
-
-        active_newsletters = NewsLetter.objects.filter(
-            status='Запущена'
-        ) | NewsLetter.objects.filter(
-            start_time__lte=now,
-            end_time__gte=now
-        )
-
-        context['active_newsletters_count'] = active_newsletters.count()
-        context['all_newsletters_count'] = NewsLetter.objects.count()
-        context['customers_count'] = Customer.objects.count()
-        return context
-
-
-class LettersView(ListView):
+class LettersView(LoginRequiredMixin,ListView):
     model = Letter
     template_name = 'letters.html'
     context_object_name = 'letters'

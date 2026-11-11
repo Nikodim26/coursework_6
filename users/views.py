@@ -4,9 +4,12 @@ from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView
+from django.utils import timezone
+from django.views.generic import CreateView, TemplateView
 
 from config import settings
+from customer_management.models import Customer
+from mailing_management.models import NewsLetter
 from users.forms import UserRegisterForm
 from users.models import User
 
@@ -51,3 +54,22 @@ def email_verification(request, token):
     user.save()
 
     return redirect(reverse('users:login'))
+
+class HomeView(TemplateView):
+    template_name = 'start_mailing.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        now = timezone.now()
+
+        active_newsletters = NewsLetter.objects.filter(
+            status='Запущена'
+        ) | NewsLetter.objects.filter(
+            start_time__lte=now,
+            end_time__gte=now
+        )
+
+        context['active_newsletters_count'] = active_newsletters.count()
+        context['all_newsletters_count'] = NewsLetter.objects.count()
+        context['customers_count'] = Customer.objects.count()
+        return context

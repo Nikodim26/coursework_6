@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -5,7 +6,7 @@ from mailing_management.forms import MailingForm
 from mailing_management.models import NewsLetter
 
 
-class NewsLettersView(ListView):
+class NewsLettersView(LoginRequiredMixin,ListView):
     model = NewsLetter
     template_name = 'newsletters.html'
     context_object_name = 'newsletter'

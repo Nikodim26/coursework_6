@@ -4,7 +4,7 @@ from message_management.apps import MessageManagementConfig
 from django.urls import path
 
 from message_management.views import LettersView, LetterView, LetterCreateView, LetterUpdateView, \
-    LetterDeleteView, HomeView
+    LetterDeleteView
 
 app_name = MessageManagementConfig.name
 
@@ -16,7 +16,6 @@ urlpatterns = [
     path('letter/new/', LetterCreateView.as_view(), name='letter_create'),
     path('letter/<int:pk>/edit/', LetterUpdateView.as_view(), name='letter_edit'),
     path('letter/<int:pk>/delete/',LetterDeleteView.as_view(), name='letter_delete'),
-    path('home/',HomeView.as_view(), name='home'),
 
 ]
 
