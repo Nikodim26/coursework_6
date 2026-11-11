@@ -19,7 +19,7 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserRegisterForm
     template_name = 'login_register.html'
-    success_url = reverse_lazy("users:login")
+    success_url = reverse_lazy("users:must_be_completed")
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -55,6 +55,7 @@ def email_verification(request, token):
 
     return redirect(reverse('users:login'))
 
+
 class HomeView(TemplateView):
     template_name = 'start_mailing.html'
 
@@ -73,3 +74,6 @@ class HomeView(TemplateView):
         context['all_newsletters_count'] = NewsLetter.objects.count()
         context['customers_count'] = Customer.objects.count()
         return context
+
+class MustBeCompletedView(TemplateView):
+    template_name = 'must_be_completed.html'

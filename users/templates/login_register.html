@@ -3,7 +3,6 @@
 {% block content %}
 <div class="container mt-5">
     <h5 class="pricing-header pb-md-5 mx-auto text-center">Добро пожаловать!</h5>
-
     <form method="post" enctype="multipart/form-data" class="w-100" style="max-width: 400px; margin: 0 auto;">
         {% csrf_token %}
         {{ form.as_p }}
