@@ -1,20 +1,20 @@
 [
 {
     "model": "users.user",
-    "pk": 46,
+    "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$600000$UBACepoSPGmMZwi5vgA1HX$Phy1pKk8PDxwOGy8dGv6FCF1BKfq7zm8ezVTjhbumBM=",
-        "last_login": null,
-        "is_superuser": false,
+        "password": "pbkdf2_sha256$1500000$3AzI38v8CSIj1G6TSc8DZa$mtiGWXOM+lmB0HENNUu5LzcRiUuYPPTjAGAYgoelKmU=",
+        "last_login": "2026-11-12T07:14:19.965Z",
+        "is_superuser": true,
         "first_name": "",
         "last_name": "",
-        "is_staff": false,
+        "is_staff": true,
         "is_active": true,
-        "date_joined": "2026-10-27T17:49:29Z",
-        "email": "Trus@yandex.ru",
-        "avatar": "users/image/трус_qosJwWn.png",
-        "phone_number": "+7911835510",
-        "country": "Россия",
+        "date_joined": "2026-10-29T10:56:58.521Z",
+        "email": "lr1975@yandex.ru",
+        "avatar": "",
+        "phone_number": null,
+        "country": null,
         "token": null,
         "groups": [],
         "user_permissions": []
@@ -22,47 +22,22 @@
 },
 {
     "model": "users.user",
-    "pk": 47,
+    "pk": 55,
     "fields": {
-        "password": "pbkdf2_sha256$600000$UnsRoyA7afoAgrJWV3CeJj$bpas1m5/7Q605tnfyPIQnCCGZ+xibG6rEfd1INPRvO0=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$1500000$a46eor0WNoG1xpkASHKMvC$VaOf9kiZdf7Z/19gMv9RNyAacuwbxyo9a9z2ecqn+D4=",
+        "last_login": "2026-11-12T12:02:22.480Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2026-10-27T17:50:25Z",
-        "email": "Balbes@mail.ru",
-        "avatar": "users/image/балбес_25epvBp.png",
-        "phone_number": "+79118355920",
+        "date_joined": "2026-11-12T12:01:40.100Z",
+        "email": "Standard.user.Sky@yandex.ru",
+        "avatar": "",
+        "phone_number": "+79118355910",
         "country": "Россия",
-        "token": null,
-        "groups": [
-            1
-        ],
-        "user_permissions": []
-    }
-},
-{
-    "model": "users.user",
-    "pk": 48,
-    "fields": {
-        "password": "pbkdf2_sha256$600000$0E0sw11vhgjmZqKEkCq6Yu$5nIc3CSFDI47xIqdk6+npcob42aMfcQKzSOjrNH0fWs=",
-        "last_login": null,
-        "is_superuser": false,
-        "first_name": "",
-        "last_name": "",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2026-10-27T17:51:26Z",
-        "email": "Byvaliy@gmail.com",
-        "avatar": "users/image/бывалый_REMS7Qr.png",
-        "phone_number": "+79118355930",
-        "country": "Россия",
-        "token": null,
-        "groups": [
-            1
-        ],
+        "token": "",
+        "groups": [],
         "user_permissions": []
     }
 }

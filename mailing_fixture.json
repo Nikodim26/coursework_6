@@ -18,7 +18,7 @@
     "fields": {
         "start_time": "2026-11-01T15:42:07Z",
         "end_time": "2026-11-20T15:42:07Z",
-        "status": "Запущена",
+        "status": null,
         "message": 2,
         "recipients": [
             2
@@ -68,9 +68,9 @@
     "model": "mailing_management.newsletter",
     "pk": 7,
     "fields": {
-        "start_time": "2026-11-10T07:10:10Z",
+        "start_time": "2026-11-08T07:10:10Z",
         "end_time": "2026-11-11T07:10:10Z",
-        "status": "",
+        "status": "Запущена",
         "message": 1,
         "recipients": [
             3
@@ -94,9 +94,9 @@
     "model": "mailing_management.newsletter",
     "pk": 10,
     "fields": {
-        "start_time": "2026-11-09T18:26:01Z",
+        "start_time": "2026-11-08T18:26:01Z",
         "end_time": "2026-11-10T18:26:09Z",
-        "status": "",
+        "status": null,
         "message": 5,
         "recipients": [
             3
