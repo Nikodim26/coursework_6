@@ -5,7 +5,8 @@
     "fields": {
         "fio": "Никулин Юрий Владимирович",
         "email": "Balbes@mail.ru",
-        "description": "Тестовый клиент"
+        "description": "Тестовый клиент",
+        "owner": null
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "fio": "Вицин Георгий Михайлович",
         "email": "Trus@yandex.ru",
-        "description": "Тестовый клиент"
+        "description": "Тестовый клиент",
+        "owner": null
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "fio": "Моргунов Евгений Александрович",
         "email": "Byvaliy@gmail.com",
-        "description": "Тестовый клиент"
+        "description": "Тестовый клиент",
+        "owner": null
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "fio": "Васильев Андрей Александрович",
         "email": "lr1975@yandex.ru",
-        "description": "Это Я-любимый"
+        "description": "Это Я-любимый",
+        "owner": null
     }
 }
 ]

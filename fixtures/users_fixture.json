@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1500000$3AzI38v8CSIj1G6TSc8DZa$mtiGWXOM+lmB0HENNUu5LzcRiUuYPPTjAGAYgoelKmU=",
-        "last_login": "2026-11-12T07:14:19.965Z",
+        "last_login": "2026-11-12T15:54:41.460Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -13,8 +13,8 @@
         "date_joined": "2026-10-29T10:56:58.521Z",
         "email": "lr1975@yandex.ru",
         "avatar": "",
-        "phone_number": null,
-        "country": null,
+        "phone_number": "+79118355919",
+        "country": "Россия",
         "token": null,
         "groups": [],
         "user_permissions": []
@@ -25,7 +25,7 @@
     "pk": 55,
     "fields": {
         "password": "pbkdf2_sha256$1500000$a46eor0WNoG1xpkASHKMvC$VaOf9kiZdf7Z/19gMv9RNyAacuwbxyo9a9z2ecqn+D4=",
-        "last_login": "2026-11-12T12:02:22.480Z",
+        "last_login": "2026-11-12T16:12:43.632Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -36,7 +36,28 @@
         "avatar": "",
         "phone_number": "+79118355910",
         "country": "Россия",
-        "token": "",
+        "token": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 56,
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$nASiKfsJSslN02WwkT3e19$HIrJCds3I+rRQuQZYdH0iXn2XlFgl6eUmJDF4dn1N7U=",
+        "last_login": "2026-11-12T15:30:52.401Z",
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-11-12T15:30:29.953Z",
+        "email": "Manager.user.Sky@yandex.ru",
+        "avatar": "",
+        "phone_number": "+79118355920",
+        "country": "Россия",
+        "token": null,
         "groups": [],
         "user_permissions": []
     }

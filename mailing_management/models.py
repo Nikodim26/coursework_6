@@ -5,6 +5,7 @@ from django.utils import timezone
 
 class NewsLetter(models.Model):
     start_time = models.DateTimeField(verbose_name='Время запуска рассылки', blank=False, null=False)
+    owner = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True)
     end_time = models.DateTimeField(verbose_name='Время остановки рассылки', blank=False, null=False)
     status = models.CharField(max_length=15, verbose_name='Статус рассылки', blank=True, null=True)
     message = models.ForeignKey(

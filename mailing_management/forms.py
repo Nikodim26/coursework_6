@@ -26,7 +26,7 @@ class MailingForm(forms.ModelForm):
 
     class Meta:
         model = NewsLetter
-        exclude = ['status']
+        exclude = ['status','owner']
         widgets = {
             'start_time': forms.DateTimeInput(
                 attrs={'type': 'datetime-local', 'step': 1},

@@ -34,6 +34,12 @@ class LetterCreateView(CreateView):
     success_url = reverse_lazy("message_management:letters")
     context_object_name = 'letter'
 
+    def form_valid(self, form):
+        Letter = form.save(commit=False)
+        Letter.owner = self.request.user
+        Letter.save()
+        return super().form_valid(form)
+
 
 class LetterUpdateView(UpdateView):
     model = Letter

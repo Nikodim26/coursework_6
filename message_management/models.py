@@ -5,6 +5,7 @@ from django.urls import reverse
 class Letter(models.Model):
     email_subject = models.CharField(max_length=100, verbose_name='Тема письма')
     letter_body = models.TextField(verbose_name="Содержание письма", blank=True, null=True)
+    owner = models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return f'{self.email_subject}'

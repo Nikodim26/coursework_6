@@ -31,6 +31,12 @@ class CustomerCreateView(CreateView):
     success_url = reverse_lazy("customer_management:customers")
     context_object_name = 'customer'
 
+    def form_valid(self, form):
+        Customer = form.save(commit=False)
+        Customer.owner = self.request.user
+        Customer.save()
+        return super().form_valid(form)
+
 
 class CustomerUpdateView(UpdateView):
     model = Customer

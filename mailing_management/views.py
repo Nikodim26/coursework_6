@@ -41,6 +41,12 @@ class NewsLetterCreateView(CreateView):
     success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'
 
+    def form_valid(self, form):
+        NewsLetters = form.save(commit=False)
+        NewsLetters.owner = self.request.user
+        NewsLetters.save()
+        return super().form_valid(form)
+
 
 class NewsLetterUpdateView(UpdateView):
     model = NewsLetter
