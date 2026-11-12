@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1500000$3AzI38v8CSIj1G6TSc8DZa$mtiGWXOM+lmB0HENNUu5LzcRiUuYPPTjAGAYgoelKmU=",
-        "last_login": "2026-11-12T15:54:41.460Z",
+        "last_login": "2026-11-12T17:02:06.388Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -46,19 +46,21 @@
     "pk": 56,
     "fields": {
         "password": "pbkdf2_sha256$1500000$nASiKfsJSslN02WwkT3e19$HIrJCds3I+rRQuQZYdH0iXn2XlFgl6eUmJDF4dn1N7U=",
-        "last_login": "2026-11-12T15:30:52.401Z",
+        "last_login": "2026-11-12T15:30:52Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2026-11-12T15:30:29.953Z",
+        "date_joined": "2026-11-12T15:30:29Z",
         "email": "Manager.user.Sky@yandex.ru",
         "avatar": "",
         "phone_number": "+79118355920",
         "country": "Россия",
         "token": null,
-        "groups": [],
+        "groups": [
+            4
+        ],
         "user_permissions": []
     }
 }
