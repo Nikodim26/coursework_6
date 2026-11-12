@@ -4,7 +4,7 @@ from django.views.generic import RedirectView
 
 from users.apps import UsersConfig
 from users.forms import UserLoginForm
-from users.views import UserCreateView, email_verification, HomeView, MustBeCompletedView
+from users.views import UserCreateView, email_verification, HomeView, HView
 
 app_name = UsersConfig.name
 
@@ -15,5 +15,5 @@ urlpatterns = [
     path('register/', UserCreateView.as_view(), name='register'),
     path("email-confirm/<str:token>/", email_verification, name='email-confirm'),
     path('home/',HomeView.as_view(), name='home'),
-    path('must_be_completed/',MustBeCompletedView.as_view(), name='must_be_completed'),
+    path('login_/',HView.as_view(), name='login_'),
 ]

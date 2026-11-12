@@ -6,7 +6,7 @@ class Command(BaseCommand):
     help = "Создаёт группу модераторов продуктов и назначает права"
 
     def handle(self, *args, **options):
-        group, _ = Group.objects.get_or_create(name="Модератор продуктов")
+        group, _ = Group.objects.get_or_create(name="Менеджер")
 
         permissions = Permission.objects.filter(
             content_type__app_label="catalog",
@@ -22,5 +22,5 @@ class Command(BaseCommand):
 
         group.permissions.set(permissions)
         self.stdout.write(
-            self.style.SUCCESS("Группа «Модератор продуктов» создана")
+            self.style.SUCCESS("Группа «Менеджер» создана")
         )

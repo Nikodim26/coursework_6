@@ -19,7 +19,7 @@ class UserCreateView(CreateView):
     model = User
     form_class = UserRegisterForm
     template_name = 'login_register.html'
-    success_url = reverse_lazy("users:must_be_completed")
+    success_url = reverse_lazy("users:login_")
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -75,5 +75,5 @@ class HomeView(TemplateView):
         context['customers_count'] = Customer.objects.count()
         return context
 
-class MustBeCompletedView(TemplateView):
-    template_name = 'must_be_completed.html'
+class HView(TemplateView):
+    template_name = 'intermediate.html'
