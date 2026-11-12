@@ -9,7 +9,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--fixture',
             type=str,
-            default='customer_fixture.json',
+            default='fixtures/customer_fixture.json',
             help='Путь к файлу фикстуры (по умолчанию: customer_fixture.json)'
         )
         parser.add_argument(
