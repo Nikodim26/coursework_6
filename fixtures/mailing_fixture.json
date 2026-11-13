@@ -4,7 +4,7 @@
     "pk": 16,
     "fields": {
         "start_time": "2026-11-14T17:47:13Z",
-        "owner": 1,
+        "owner": 58,
         "end_time": "2026-11-20T17:47:19Z",
         "status": null,
         "message": 10,
@@ -46,7 +46,7 @@
     "pk": 19,
     "fields": {
         "start_time": "2026-11-21T17:49:43Z",
-        "owner": 1,
+        "owner": 58,
         "end_time": "2026-11-29T17:49:47Z",
         "status": "Создана",
         "message": 7,
