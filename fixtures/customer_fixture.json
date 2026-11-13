@@ -1,42 +1,42 @@
 [
 {
     "model": "customer_management.customer",
-    "pk": 1,
-    "fields": {
-        "fio": "Никулин Юрий Владимирович",
-        "email": "Balbes@mail.ru",
-        "description": "Тестовый клиент",
-        "owner": null
-    }
-},
-{
-    "model": "customer_management.customer",
-    "pk": 2,
-    "fields": {
-        "fio": "Вицин Георгий Михайлович",
-        "email": "Trus@yandex.ru",
-        "description": "Тестовый клиент",
-        "owner": null
-    }
-},
-{
-    "model": "customer_management.customer",
-    "pk": 3,
-    "fields": {
-        "fio": "Моргунов Евгений Александрович",
-        "email": "Byvaliy@gmail.com",
-        "description": "Тестовый клиент",
-        "owner": null
-    }
-},
-{
-    "model": "customer_management.customer",
     "pk": 4,
     "fields": {
         "fio": "Васильев Андрей Александрович",
         "email": "lr1975@yandex.ru",
         "description": "Это Я-любимый",
         "owner": null
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 5,
+    "fields": {
+        "fio": "Krasn.rb.faps",
+        "email": "Krasn.rb.faps@yandex.ru",
+        "description": "Подключки",
+        "owner": 1
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 6,
+    "fields": {
+        "fio": "adm.krasn.crb",
+        "email": "adm.krasn.crb@yandex.ru",
+        "description": "Контора",
+        "owner": 1
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 7,
+    "fields": {
+        "fio": "Standard.user.Sky",
+        "email": "Standard.user.Sky@yandex.ru",
+        "description": "Тестовый клиент",
+        "owner": 1
     }
 }
 ]

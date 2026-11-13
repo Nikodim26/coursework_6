@@ -1,5 +1,9 @@
+{% load users_tags %}
 <form action="{% url 'users:logout' %}" method="post">
     {% csrf_token %}
-    <span>{{ user.email|default:"" }}</span>
+    {% if user.avatar%}
+        <img src="{{ user.avatar | media_filter }}" alt="" class="rounded img-with-border" width="50" height="50">
+        <span>{{ user.email|default:"" }}</span>
+    {%endif%}
     <button type="submit" class="p-2 btn btn-dark">Выход</button>
 </form>
