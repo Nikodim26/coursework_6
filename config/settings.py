@@ -82,6 +82,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 
 LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'Europe/Moscow'
@@ -120,3 +126,6 @@ SERVER_EMAIL = EMAIL_HOST_USER
 # }
 #
 # CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))
+
+
+

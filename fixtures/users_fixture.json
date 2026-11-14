@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1500000$3AzI38v8CSIj1G6TSc8DZa$mtiGWXOM+lmB0HENNUu5LzcRiUuYPPTjAGAYgoelKmU=",
-        "last_login": "2026-11-13T16:38:55.737Z",
+        "last_login": "2026-11-14T16:13:03.605Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
@@ -12,9 +12,9 @@
         "is_active": true,
         "date_joined": "2026-10-29T10:56:58Z",
         "email": "lr1975@yandex.ru",
-        "avatar": "users/image/avatar.jpg",
+        "avatar": "users/image/рф_загран.jpg",
         "phone_number": "+79118355919",
-        "country": "Р РѕСЃСЃРёСЏ",
+        "country": "Россия",
         "token": null,
         "groups": [],
         "user_permissions": []
@@ -30,12 +30,12 @@
         "first_name": "",
         "last_name": "",
         "is_staff": false,
-        "is_active": true,
+        "is_active": false,
         "date_joined": "2026-11-13T15:30:49.772Z",
         "email": "Trus@yandex.ru",
-        "avatar": "users/image/С‚СЂСѓСЃ.png",
+        "avatar": "users/image/трус.png",
         "phone_number": "+79118355910",
-        "country": "Р РѕСЃСЃРёСЏ",
+        "country": "Россия",
         "token": null,
         "groups": [],
         "user_permissions": []
@@ -46,7 +46,7 @@
     "pk": 58,
     "fields": {
         "password": "pbkdf2_sha256$1500000$dzMfRbCoJ12yB75kPuWoJw$4cZ2kzKiCInfq3WqYwcAH5BytuyCRntkTgDgLCl97YM=",
-        "last_login": "2026-11-13T16:38:06.818Z",
+        "last_login": "2026-11-14T16:08:53.909Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -54,9 +54,9 @@
         "is_active": true,
         "date_joined": "2026-11-13T15:32:31.779Z",
         "email": "Balbes@mail.ru",
-        "avatar": "users/image/Р±Р°Р»Р±РµСЃ.png",
+        "avatar": "users/image/балбес.png",
         "phone_number": "+79118355920",
-        "country": "Р РѕСЃСЃРёСЏ",
+        "country": "Россия",
         "token": null,
         "groups": [],
         "user_permissions": []
@@ -67,7 +67,7 @@
     "pk": 59,
     "fields": {
         "password": "pbkdf2_sha256$1500000$BAqgPWPyGqrEVcVxEg7Nw3$WQtiQjVAvxgzYnmmLayXWvgu/xn2P+Mkba28fOgVJDE=",
-        "last_login": "2026-11-13T16:38:45Z",
+        "last_login": "2026-11-14T16:08:17.598Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -75,9 +75,9 @@
         "is_active": true,
         "date_joined": "2026-11-13T15:34:16Z",
         "email": "Byvaliy@gmail.com",
-        "avatar": "users/image/Р±С‹РІР°Р»С‹Р№.png",
+        "avatar": "users/image/бывалый.png",
         "phone_number": "+79118355930",
-        "country": "Р РѕСЃСЃРёСЏ",
+        "country": "Россия",
         "token": null,
         "groups": [
             4

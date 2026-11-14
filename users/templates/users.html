@@ -1,0 +1,35 @@
+{% extends 'users_base.html' %}
+{% load users_tags %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left">
+            <h5 class="text-info mb-3 text-center">Простые пользователи</h5>
+            <form action="{% url 'users:users' %}" method="post">
+                {% csrf_token %}
+                <div class="p-4 card shadow-lg">
+                    {% for user in users %}
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="{{ user.avatar|media_filter }}" alt=""
+                                 class="rounded img-with-border" width="50" height="50">
+                            <span>{{ user.email|email_local_part|default:"" }}</span>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox"
+                                   name="is_active_{{ user.id }}" value="True"
+                                   id="switch_{{ user.id }}" for="switch_{{ user.id }}"
+                                   {% if not user.is_active %}checked{% endif %}>
+                            <label class="form-check-label" for="switch_{{ user.id }}">блокировка</label>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mt-3 text-center">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@
     {% csrf_token %}
     {% if user.avatar%}
         <img src="{{ user.avatar | media_filter }}" alt="" class="rounded img-with-border" width="50" height="50">
-        <span>{{ user.email|default:"" }}</span>
+        <span>{{ user.email|email_local_part|default:"" }}</span>
     {%endif%}
     <button type="submit" class="p-2 btn btn-dark">Выход</button>
 </form>

@@ -3,9 +3,9 @@
     "model": "customer_management.customer",
     "pk": 4,
     "fields": {
-        "fio": "Р’Р°СЃРёР»СЊРµРІ РђРЅРґСЂРµР№ РђР»РµРєСЃР°РЅРґСЂРѕРІРёС‡",
+        "fio": "Васильев Андрей Александрович",
         "email": "lr1975@yandex.ru",
-        "description": "Р­С‚Рѕ РЇ - Р»СЋР±РёРјС‹Р№",
+        "description": "Это Я - любимый",
         "owner": 1
     }
 },
@@ -13,9 +13,9 @@
     "model": "customer_management.customer",
     "pk": 5,
     "fields": {
-        "fio": "РЎРёРґРѕСЂРѕРІ РЎРёРґРѕСЂ РЎРёРґРѕСЂРѕРІРёС‡",
+        "fio": "Сидоров Сидор Сидорович",
         "email": "Krasn.rb.faps@yandex.ru",
-        "description": "РџРѕРґРєР»СЋС‡РєРё",
+        "description": "Подключки",
         "owner": 1
     }
 },
@@ -23,9 +23,9 @@
     "model": "customer_management.customer",
     "pk": 6,
     "fields": {
-        "fio": "РРІР°РЅРѕРІ РРІР°РЅ РРІР°РЅРѕРІРёС‡",
+        "fio": "Иванов Иван Иванович",
         "email": "adm.krasn.crb@yandex.ru",
-        "description": "РљРѕРЅС‚РѕСЂР°",
+        "description": "Контора",
         "owner": 1
     }
 },
@@ -33,9 +33,9 @@
     "model": "customer_management.customer",
     "pk": 7,
     "fields": {
-        "fio": "РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ РЎС‚Р°РЅРґР°СЂС‚ РЎС‚Р°РЅРґР°СЂС‚РѕРІРёС‡",
+        "fio": "Стандартный Стандарт Стандартович",
         "email": "Standard.user.Sky@yandex.ru",
-        "description": "РўРµСЃС‚РѕРІС‹Р№ РєР»РёРµРЅС‚",
+        "description": "Тестовый клиент",
         "owner": 1
     }
 }

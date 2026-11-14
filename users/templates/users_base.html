@@ -1,5 +1,5 @@
 <!doctype html>
-
+{% load users_tags %}
 {% load static %}
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
     <nav class="ms-5 d-flex justify-content-between align-items-center w-100">
-        {% if request.path != '/login/' and request.path != '/login_/' %}
+        {% if not request.path|path_in:"/login/,/login_/,/users/" %}
             <a class="btn btn-primary" href="#">Запуск рассылок</a>
         {% else %}
         <div></div>

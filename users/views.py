@@ -2,20 +2,22 @@ import secrets
 
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy, reverse
 from django.utils import timezone
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
 
 from config import settings
 from customer_management.models import Customer
 from mailing_management.models import NewsLetter
 from users.forms import UserRegisterForm
+
 from users.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 
 class UserCreateView(CreateView):
-
     model = User
     form_class = UserRegisterForm
     template_name = 'login_register.html'
@@ -46,7 +48,6 @@ class UserCreateView(CreateView):
 
 
 def email_verification(request, token):
-
     user = get_object_or_404(User, token=token)
 
     user.is_active = True
@@ -75,5 +76,38 @@ class HomeView(TemplateView):
         context['customers_count'] = Customer.objects.count()
         return context
 
-class HView(TemplateView):
+
+class IntermediateView(TemplateView):
     template_name = 'intermediate.html'
+
+
+class UsersListView(LoginRequiredMixin, ListView):
+    model = User
+    template_name = 'users.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        return User.objects.filter(is_superuser=False).exclude(groups__name="Менеджеры")
+
+    def dispatch(self, request, *args, **kwargs):
+        is_manager = request.user.groups.filter(name="Менеджеры").exists()
+
+        if not (is_manager or request.user.is_superuser):
+            return render(request, 'permission_denied.html', {
+                'message': 'Доступ к этому разделу есть только у суперпользователей и менеджеров.',
+                'error': 'Ошибка 403 Forbidden («Запрещено»)'
+            }, status=403)
+
+        return super().dispatch(request, *args, **kwargs)
+
+
+    def post(self, request, *args, **kwargs):
+        users = self.get_queryset()
+
+        for user in users:
+            key = f'is_active_{user.id}'
+            user.is_active = (request.POST.get(key) != 'True')
+            user.save()
+
+        messages.success(request, 'Настройки сохранены')
+        return redirect('users:home')

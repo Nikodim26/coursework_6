@@ -1,10 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.utils import timezone
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from customer_management.models import Customer
-from mailing_management.models import NewsLetter
 from message_management.forms import LetterForm
 from message_management.models import Letter
 

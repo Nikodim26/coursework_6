@@ -1,13 +1,27 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from users.models import User
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+from django.utils.translation import gettext_lazy as _
 
 
 class UserLoginForm(AuthenticationForm):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['password'].label = 'Пароль'
         self.fields['password'].widget.attrs.update({'class': 'form-control border border-primary', })
         self.fields['username'].widget.attrs.update({'class': 'form-control border border-primary', })
+
+    error_messages = {
+        'invalid_login': _('Неверный логин или пароль.'),
+        'inactive': _('Этот аккаунт заблокирован. Обратитесь к администратору или менеджеру.'),
+    }
+
+    def confirm_login_allowed(self, user):
+        if not user.is_active:
+            raise forms.ValidationError(self.error_messages['inactive'], code='inactive')
+        return super().confirm_login_allowed(user)
 
 
 class UserRegisterForm(UserCreationForm):
