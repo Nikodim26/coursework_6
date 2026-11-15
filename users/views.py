@@ -83,10 +83,6 @@ class UsersListView(LoginRequiredMixin, ListView):
     template_name = 'users.html'
     context_object_name = 'users'
 
-    def dispatch(self, request, *args, **kwargs):
-        response = access_manager(request, 'Доступ только для суперпользователей и менеджеров.')
-        return super().dispatch(request, *args, **kwargs) if not response else response
-
     def get_queryset(self):
         return User.objects.filter(is_superuser=False).exclude(groups__name="Менеджеры")
 
@@ -95,3 +91,7 @@ class UsersListView(LoginRequiredMixin, ListView):
             user.is_active = (request.POST.get(f'is_active_{user.id}') != 'True')
             user.save()
         return redirect('users:home')
+
+    def dispatch(self, request, *args, **kwargs):
+        response = access_manager(self,request, 'Доступ только для суперпользователей и менеджеров.')
+        return super().dispatch(request, *args, **kwargs) if not response else response

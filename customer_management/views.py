@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from customer_management.forms import CustomerForm
 from customer_management.models import Customer
-from users.services import access_manager2
+from users.services import access_manager
 
 
 class CustomersView(LoginRequiredMixin, ListView):
@@ -28,7 +28,7 @@ class CustomerView(DetailView):
     pk_url_kwarg = 'pk'
 
     def dispatch(self, request, *args, **kwargs):
-        response=access_manager2(self, request, 'Не ты создавал - видеть запрещено!')
+        response=access_manager(self, request, 'Не ты создавал - видеть запрещено!')
         return super().dispatch(request, *args, **kwargs) if not response else response
 
 
