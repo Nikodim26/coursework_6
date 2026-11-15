@@ -1,13 +1,14 @@
 from django.shortcuts import render
 
 
-def access_manager(obj,request,message):
+def access_manager(obj, request, message):
     is_manager = request.user.groups.filter(name="Менеджеры").exists()
     is_super = request.user.is_superuser
     if not request.user.is_authenticated:
         return None
 
-    if obj.template_name =='customer.html':
+    if obj.template_name in ['customer.html', 'letter.html', 'newsletter.html']:
+
         obj_ = obj.get_object()
         is_host = obj_.owner_id == request.user.id
 
@@ -24,4 +25,14 @@ def access_manager(obj,request,message):
                 'message': message,
                 'error': 'Ошибка 403 Forbidden'
             }, status=403)
+
+    if obj.template_name in ['create_update_customer.html', 'customer_delete_form.html', 'create_update_letter.html',
+                             'letter_delete_form.html', 'create_update_mail.html', 'newsletter_delete_form.html']:
+
+        if is_manager:
+            return render(request, 'permission_denied.html', {
+                'message': message,
+                'error': 'Ошибка 403 Forbidden'
+            }, status=403)
+
     return None

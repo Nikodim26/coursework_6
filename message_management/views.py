@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from message_management.forms import LetterForm
 from message_management.models import Letter
+from users.services import access_manager
 
 
 class LettersView(LoginRequiredMixin,ListView):
@@ -25,6 +26,10 @@ class LetterView(DetailView):
     context_object_name = 'letter'
     pk_url_kwarg = 'pk'
 
+    def dispatch(self, request, *args, **kwargs):
+        response = access_manager(self, request, 'Не ты создавал - видеть запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 
 class LetterCreateView(CreateView):
@@ -40,6 +45,10 @@ class LetterCreateView(CreateView):
         Letter.save()
         return super().form_valid(form)
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class LetterUpdateView(UpdateView):
     model = Letter
@@ -50,9 +59,17 @@ class LetterUpdateView(UpdateView):
     def get_success_url(self):
         return self.object.get_absolute_url()
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class LetterDeleteView(DeleteView):
     model = Letter
     template_name = 'letter_delete_form.html'
     success_url = reverse_lazy("message_management:letters")
     context_object_name = 'letter'
+
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response

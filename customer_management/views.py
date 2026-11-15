@@ -15,12 +15,12 @@ class CustomersView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+
         is_manager = user.groups.filter(name="Менеджеры").exists()
         context['customers'] = Customer.objects.all() if (user.is_superuser or is_manager) \
             else Customer.objects.filter(owner=user)
         return context
 
-from django.shortcuts import render
 class CustomerView(DetailView):
     model = Customer
     template_name = 'customer.html'
@@ -45,6 +45,10 @@ class CustomerCreateView(CreateView):
         Customer.save()
         return super().form_valid(form)
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class CustomerUpdateView(UpdateView):
     model = Customer
@@ -55,9 +59,17 @@ class CustomerUpdateView(UpdateView):
     def get_success_url(self):
         return self.object.get_absolute_url()
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class CustomerDeleteView(DeleteView):
     model = Customer
     template_name = 'customer_delete_form.html'
     success_url = reverse_lazy("customer_management:customers")
     context_object_name = 'customer'
+
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response

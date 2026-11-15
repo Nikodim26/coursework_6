@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from mailing_management.forms import MailingForm
 from mailing_management.models import NewsLetter
+from users.services import access_manager
 
 
 class NewsLettersView(LoginRequiredMixin,ListView):
@@ -24,6 +25,10 @@ class NewsLetterView(DetailView):
     template_name = 'newsletter.html'
     context_object_name = 'newsletter'
     pk_url_kwarg = 'pk'
+
+    def dispatch(self, request, *args, **kwargs):
+        response = access_manager(self, request, 'Не ты создавал - видеть запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
@@ -49,6 +54,10 @@ class NewsLetterCreateView(CreateView):
         NewsLetters.save()
         return super().form_valid(form)
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class NewsLetterUpdateView(UpdateView):
     model = NewsLetter
@@ -59,9 +68,17 @@ class NewsLetterUpdateView(UpdateView):
     def get_success_url(self):
         return self.object.get_absolute_url()
 
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
+
 
 class NewsLetterDeleteView(DeleteView):
     model = NewsLetter
     template_name = 'newsletter_delete_form.html'
     success_url = reverse_lazy("mailing_management:newsletters")
     context_object_name = 'newsletter'
+
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager(self, request, 'Ты просто менеджер - тебе Запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
