@@ -1,5 +1,6 @@
-from django.views.generic import RedirectView
+from django.views.decorators.cache import cache_page
 
+from config.settings import CACHE_TIMEOUT
 from message_management.apps import MessageManagementConfig
 from django.urls import path
 
@@ -9,8 +10,7 @@ from message_management.views import LettersView, LetterView, LetterCreateView, 
 app_name = MessageManagementConfig.name
 
 urlpatterns = [
-    # path('', RedirectView.as_view(pattern_name='message_management:letters', permanent=False), name='root'),
-    path('letters/', LettersView.as_view(), name='letters'),
+    path('letters/', cache_page(CACHE_TIMEOUT)(LettersView.as_view()), name='letters'),
     path('letter/<int:pk>/',LetterView.as_view(), name='letter'),
 
     path('letter/new/', LetterCreateView.as_view(), name='letter_create'),

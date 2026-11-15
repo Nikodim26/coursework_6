@@ -1,7 +1,9 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
+from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 
+from config.settings import CACHE_TIMEOUT
 from users.apps import UsersConfig
 from users.forms import UserLoginForm
 from users.views import UserCreateView, email_verification, HomeView, IntermediateView, UsersListView
@@ -16,6 +18,6 @@ urlpatterns = [
     path('register/', UserCreateView.as_view(), name='register'),
     path("email-confirm/<str:token>/", email_verification, name='email-confirm'),
     path('home/', HomeView.as_view(), name='home'),
-    path('users/', UsersListView.as_view(), name='users'),
+    path('users/', cache_page(CACHE_TIMEOUT)(UsersListView.as_view()), name='users'),
 
 ]

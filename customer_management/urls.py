@@ -1,3 +1,6 @@
+from django.views.decorators.cache import cache_page
+
+from config.settings import CACHE_TIMEOUT
 from customer_management.apps import CustomerManagementConfig
 from django.urls import path
 
@@ -7,7 +10,7 @@ from customer_management.views import CustomersView, CustomerView, CustomerCreat
 app_name = CustomerManagementConfig.name
 
 urlpatterns = [
-    path('customers/', CustomersView.as_view(), name='customers'),
+    path('customers/', cache_page(CACHE_TIMEOUT)(CustomersView.as_view()), name='customers'),
     path('customer/<int:pk>/',CustomerView.as_view(), name='customer'),
 
     path('customer/new/', CustomerCreateView.as_view(), name='customer_create'),

@@ -118,14 +118,15 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': os.environ.get('BACKEND'),
-#         'LOCATION': os.environ.get('LOCATION')
-#     }
-# }
-#
-# CACHE_TIMEOUT=60*int(os.environ.get('CACHE_TIMEOUT'))
+CACHES = {
+    'default': {
+        'BACKEND': os.environ.get('BACKEND'),
+        'LOCATION': os.environ.get('LOCATION')
+    }
+}
+
+CACHE_TIMEOUT = 60 * int(os.environ.get('CACHE_TIMEOUT', 5))
+
 
 
 

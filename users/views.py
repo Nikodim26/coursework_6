@@ -1,4 +1,7 @@
 import secrets
+
+from django.core.cache import cache
+
 from config import settings
 from users.models import User
 from django.core.mail import send_mail
@@ -10,9 +13,8 @@ from django.views.generic import CreateView, TemplateView, ListView
 from customer_management.models import Customer
 from mailing_management.models import NewsLetter
 from users.forms import UserRegisterForm
-from django.contrib.auth.mixins import LoginRequiredMixin
 
-from users.services import access_manager
+from users.services import ProtectedView
 
 
 class UserCreateView(CreateView):
@@ -78,14 +80,11 @@ class IntermediateView(TemplateView):
     template_name = 'intermediate.html'
 
 
-class UsersListView(LoginRequiredMixin, ListView):
+class UsersListView(ProtectedView, ListView):
     model = User
     template_name = 'users.html'
     context_object_name = 'users'
-
-    def dispatch(self, request, *args, **kwargs):
-        response = access_manager(self,request, 'Доступ только для суперпользователей и менеджеров.')
-        return super().dispatch(request, *args, **kwargs) if not response else response
+    access_message = 'Доступ только для суперпользователей и менеджеров.'
 
     def get_queryset(self):
         return User.objects.filter(is_superuser=False).exclude(groups__name="Менеджеры")
@@ -94,5 +93,5 @@ class UsersListView(LoginRequiredMixin, ListView):
         for user in self.get_queryset():
             user.is_active = (request.POST.get(f'is_active_{user.id}') != 'True')
             user.save()
+        cache.clear()
         return redirect('users:home')
-
