@@ -1,8 +1,5 @@
 from django import template
-from django.contrib.auth.models import Group
-
 from config.settings import MEDIA_URL
-from django.conf import settings
 
 register = template.Library()
 
@@ -12,10 +9,13 @@ def media_filter(path):
         return f"{MEDIA_URL}{path}"
     return "#"
 
-@register.filter
-def path_in(path, paths_str):
-    paths = [p.strip() for p in paths_str.split(',') if p.strip()]
-    return path in paths
+# @register.filter
+# def path_in(path, paths_str):
+#     path = path.split('/')[1]
+#     paths_str=paths_str.replace('/','')
+#     paths = [p.strip() for p in paths_str.split(',') if p.strip()]
+#
+#     return path in paths
 
 @register.filter
 def email_local_part(email):

@@ -9,11 +9,13 @@ from mailing_management.models import NewsLetter
 class NewsLettersView(LoginRequiredMixin,ListView):
     model = NewsLetter
     template_name = 'newsletters.html'
-    context_object_name = 'newsletter'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['newsletters'] = NewsLetter.objects.all()
+        user = self.request.user
+        is_manager = user.groups.filter(name="Менеджеры").exists()
+        context['newsletters'] = NewsLetter.objects.all() if (user.is_superuser or is_manager) \
+            else NewsLetter.objects.filter(owner=user)
         return context
 
 

@@ -9,11 +9,13 @@ from message_management.models import Letter
 class LettersView(LoginRequiredMixin,ListView):
     model = Letter
     template_name = 'letters.html'
-    context_object_name = 'letters'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['letters'] = Letter.objects.all()
+        user = self.request.user
+        is_manager = user.groups.filter(name="Менеджеры").exists()
+        context['letters'] = Letter.objects.all() if (user.is_superuser or is_manager) \
+            else Letter.objects.filter(owner=user)
         return context
 
 
@@ -22,6 +24,7 @@ class LetterView(DetailView):
     template_name = 'letter.html'
     context_object_name = 'letter'
     pk_url_kwarg = 'pk'
+
 
 
 class LetterCreateView(CreateView):

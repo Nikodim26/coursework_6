@@ -4,24 +4,32 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from customer_management.forms import CustomerForm
 from customer_management.models import Customer
+from users.services import access_manager2
 
 
-class CustomersView(LoginRequiredMixin,ListView):
+class CustomersView(LoginRequiredMixin, ListView):
     model = Customer
     template_name = 'customers.html'
     context_object_name = 'customers'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['customers'] = Customer.objects.all()
+        user = self.request.user
+        is_manager = user.groups.filter(name="Менеджеры").exists()
+        context['customers'] = Customer.objects.all() if (user.is_superuser or is_manager) \
+            else Customer.objects.filter(owner=user)
         return context
 
-
+from django.shortcuts import render
 class CustomerView(DetailView):
     model = Customer
     template_name = 'customer.html'
     context_object_name = 'customer'
     pk_url_kwarg = 'pk'
+
+    def dispatch(self, request, *args, **kwargs):
+        response=access_manager2(self, request, 'Не ты создавал - видеть запрещено!')
+        return super().dispatch(request, *args, **kwargs) if not response else response
 
 
 class CustomerCreateView(CreateView):
