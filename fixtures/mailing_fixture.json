@@ -1,0 +1,58 @@
+[
+{
+    "model": "mailing_management.newsletter",
+    "pk": 16,
+    "fields": {
+        "start_time": "2026-11-14T17:47:13Z",
+        "owner": 58,
+        "end_time": "2026-11-20T17:47:19Z",
+        "status": null,
+        "message": 10,
+        "recipients": [
+            4
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 17,
+    "fields": {
+        "start_time": "2026-11-15T17:47:47Z",
+        "owner": 1,
+        "end_time": "2026-11-16T17:47:55Z",
+        "status": null,
+        "message": 11,
+        "recipients": [
+            5
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 18,
+    "fields": {
+        "start_time": "2026-11-18T17:49:17Z",
+        "owner": 1,
+        "end_time": "2026-11-28T17:49:22Z",
+        "status": null,
+        "message": 4,
+        "recipients": [
+            6
+        ]
+    }
+},
+{
+    "model": "mailing_management.newsletter",
+    "pk": 19,
+    "fields": {
+        "start_time": "2026-11-21T17:49:43Z",
+        "owner": 58,
+        "end_time": "2026-11-29T17:49:47Z",
+        "status": "Создана",
+        "message": 7,
+        "recipients": [
+            7
+        ]
+    }
+}
+]

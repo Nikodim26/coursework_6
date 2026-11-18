@@ -1,8 +1,11 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv()
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') == 'True'
@@ -16,7 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Newsletter_Recipient',
+    'customer_management',
+    'message_management',
+    'mailing_management',
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -34,7 +41,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +82,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
-LANGUAGE_CODE = 'en-us'
+
+
+LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
@@ -86,7 +99,6 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media/"
-
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/home/'
@@ -99,8 +111,8 @@ EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
-EMAIL_USE_TLS = os.environ.get('DEBUG') == 'True'
-EMAIL_USE_SSL = os.environ.get('DEBUG') == 'True'
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True'
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL') == 'True'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -113,4 +125,8 @@ CACHES = {
     }
 }
 
-CACHE_TIMEOUT=60*int(os.environ.get('LOCATION'))
+CACHE_TIMEOUT = 60 * int(os.environ.get('CACHE_TIMEOUT', 5))
+
+
+
+

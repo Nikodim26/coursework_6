@@ -1,0 +1,42 @@
+[
+{
+    "model": "customer_management.customer",
+    "pk": 4,
+    "fields": {
+        "fio": "Васильев Андрей Александрович",
+        "email": "lr1975@yandex.ru",
+        "description": "Это Я - любимый",
+        "owner": 1
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 5,
+    "fields": {
+        "fio": "Сидоров Сидор Сидорович",
+        "email": "Krasn.rb.faps@yandex.ru",
+        "description": "Подключки",
+        "owner": 1
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 6,
+    "fields": {
+        "fio": "Иванов Иван Иванович",
+        "email": "adm.krasn.crb@yandex.ru",
+        "description": "Контора",
+        "owner": 1
+    }
+},
+{
+    "model": "customer_management.customer",
+    "pk": 7,
+    "fields": {
+        "fio": "Стандартный Стандарт Стандартович",
+        "email": "Standard.user.Sky@yandex.ru",
+        "description": "Тестовый клиент",
+        "owner": 1
+    }
+}
+]

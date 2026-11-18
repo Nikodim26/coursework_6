@@ -1,0 +1,19 @@
+{% extends 'users_base.html' %}
+{% load static %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
+    <h1 class="display-5">SkyStore</h1>
+
+    <div class="row justify-content-center">
+         <div class="col-lg-5 text-center">
+
+            <img src="{% static 'icons/фига.png' %}" alt="Фига"
+            class="rounded img-with-border" width="350" height="350">
+            <h3 class="justify-content-center">{{message}}</h3>
+            <h5 class="justify-content-center">{{error}}</h5>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

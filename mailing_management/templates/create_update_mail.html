@@ -1,0 +1,20 @@
+{% extends 'newsletter_base.html' %}
+
+{% block content %}
+<div class="container text-left col-lg-4">
+    <h2 class="text-center">Новая рассылка</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+
+        {% if newsletter.pk %}
+            <a href="/newsletter/{{ newsletter.pk }}/" class="btn btn-secondary">Отмена</a>
+        {% else %}
+            <a href="/newsletters/" class="btn btn-secondary">Отмена</a>
+        {% endif %}
+
+    </form>
+</div>
+
+{% endblock %}
